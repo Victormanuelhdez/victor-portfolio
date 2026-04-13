@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Hernández | Junior Java Full Stack Developer</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-nav: #020617;
+      --accent: #38bdf8;
+      --text-main: #e2e8f0;
+      --text-dim: #94a3b8;
+      --card-bg: #1e293b;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--bg-nav);
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .header-container h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: -1px;
+    }
+
+    .header-container p {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 10px 0 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .social-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .social-nav a {
+      color: var(--text-main);
+      font-size: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    h2::after {
+      content: "";
+      height: 1px;
+      background: #334155;
+      flex-grow: 1;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 220px;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid #334155;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .card-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card h3 {
+      margin: 0 0 12px 0;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-pill {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    footer {
+      background: var(--bg-nav);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin: 15px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.8;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <h1>Victor Hernández</h1>
+      <p>Junior Java Full Stack Developer</p>
+      
+      <div class="social-nav">
+        <a href="https://github.com/Victormanuelhdez" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/victor-hernandez-javadev/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:victormanuelhernandez.hdez01@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="perfil">
+    <h2>Perfil Profesional</h2>
+    <div style="max-width: 850px;">
+      <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 20px;">
+        Desarrollador enfocado en la creación de soluciones web y lógica de programación con <strong>Java</strong>. 
+        Cuento con experiencia en el desarrollo de proyectos reales, desde <em>landing pages</em> estratégicas hasta aplicaciones robustas basadas en <strong>Programación Orientada a Objetos</strong>.
+      </p>
+      <p style="font-size: 1.1rem; color: var(--text-dim);">
+        Mi enfoque se centra en la aplicación de buenas prácticas, la estructuración de código limpio y la resolución eficiente de problemas. Me caracterizo por mi capacidad de aprendizaje acelerado y adaptabilidad, construyendo soluciones funcionales desde cero que equilibran la lógica técnica con una experiencia de usuario optimizada.
+      </p>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Stack Tecnológico</h2>
+    <div class="project-tech" style="gap: 15px;">
+      <span class="tech-pill" style="padding: 10px 20px;">Java 17</span>
+      <span class="tech-pill" style="padding: 10px 20px;">Spring Boot</span>
+      <span class="tech-pill" style="padding: 10px 20px;">JavaScript (ES6+)</span>
+      <span class="tech-pill" style="padding: 10px 20px;">MySQL</span>
+      <span class="tech-pill" style="padding: 10px 20px;">Git & GitHub</span>
+      <span class="tech-pill" style="padding: 10px 20px;">Bootstrap 5</span>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects-grid">
+      
+      <div class="card">
+        <div class="project-image">
+          <img src="IMAGES/CalleLibre.png" alt="Preview Calle Libre">
+        </div>
+        <div class="card-content">
+          <h3>Calle Libre Skate Shop</h3>
+          <p>E-commerce con arquitectura frontend dinámica. Implementación de carrito de compras y persistencia de datos local.</p>
+          <div class="project-tech">
+            <span class="tech-pill">JAVASCRIPT</span>
+            <span class="tech-pill">DOM API</span>
+            <span class="tech-pill">CSS GRID</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="IMAGES/ValidacionFormulario.png" alt="Preview Auth System">
+        </div>
+        <div class="card-content">
+          <h3>Secure Auth Backend</h3>
+          <p>Sistema modular de autenticación y autorización. Manejo de sesiones seguras y encriptación de credenciales en servidor.</p>
+          <div class="project-tech">
+            <span class="tech-pill">JAVA 17</span>
+            <span class="tech-pill">SPRING SECURITY</span>
+            <span class="tech-pill">BCRYPT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="project-image">
+          <img src="IMAGES/CajeroSimulator.png" alt="Preview ATM Simulator">
+        </div>
+        <div class="card-content">
+          <h3>ATM Core System</h3>
+          <p>Motor de transacciones financieras basado en POO. Gestión de excepciones y validación de flujos de efectivo.</p>
+          <div class="project-tech">
+            <span class="tech-pill">JAVA</span>
+            <span class="tech-pill">POO</span>
+            <span class="tech-pill">LOGICA FINANCIERA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<footer>
+    <h3>¿Hablamos?</h3>
+    <p>Estoy en búsqueda de mi próxima oportunidad profesional.</p>
+    
+    <div style="margin: 20px 0;">
+      <a href="mailto:victormanuelhernandez.hdez01@gmail.com" class="contact-link">
+        victormanuelhernandez.hdez01@gmail.com
+      </a>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <a href="CV_Victor_Hernandez.pdf" download="CV_Victor_Hernandez" 
+         style="background-color: var(--accent); 
+                color: var(--bg-nav); 
+                padding: 12px 25px; 
+                border-radius: 8px; 
+                text-decoration: none; 
+                font-weight: 700; 
+                display: inline-flex; 
+                align-items: center; 
+                gap: 10px;
+                transition: transform 0.3s ease;">
+        <i class="fa-solid fa-file-pdf"></i> Descargar CV
+      </a>
+    </div>
+
+    <div class="footer-note">
+      <p>&copy; 2026 Victor Hernández | Junior Java Full Stack Developer</p>
+    </div>
+  </footer>
+
+</body>
+</html>
