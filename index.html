@@ -162,20 +162,28 @@
       align-items: center;
       gap: 6px;
       transition: all 0.3s ease;
-      cursor: default;
     }
 
     .tech-pill:hover {
       transform: scale(1.1);
       background: rgba(56, 189, 248, 0.2);
-      border-color: var(--accent);
     }
 
+    /* --- CAMBIO SOLICITADO AQUÍ --- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      /* Forzamos exactamente 2 columnas iguales */
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
+
+    /* Ajuste para móviles: 1 columna en pantallas pequeñas */
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ------------------------------ */
 
     .card {
       background: var(--card-bg);
@@ -188,12 +196,12 @@
     }
     .card:hover { transform: translateY(-10px); border-color: var(--accent); }
 
-    .project-image { height: 220px; background: #0f172a; overflow: hidden; border-bottom: 1px solid #334155; }
+    .project-image { height: 200px; background: #0f172a; overflow: hidden; border-bottom: 1px solid #334155; }
     .project-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
 
     .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .card h3 { color: var(--accent); margin: 0 0 12px; }
-    .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
+    .card h3 { color: var(--accent); margin: 0 0 12px; font-size: 1.25rem; }
+    .card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
 
     footer { background: var(--bg-nav); padding: 60px 20px; text-align: center; border-top: 1px solid #1e293b; }
     .contact-link { color: var(--accent); font-size: 1.3rem; font-weight: 700; text-decoration: none; }
@@ -270,9 +278,7 @@
               <a href="https://github.com/cnastienka/Calle-Libre" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>
-            Desarrollado en un <strong>Hackathon</strong>. Como <strong>Scrum Master</strong>, coordiné al equipo para cumplir los objetivos. Participé en el desarrollo del <strong>Frontend</strong>, implementando la interfaz responsiva y la lógica de persistencia local.
-          </p>
+          <p>Desarrollado en un Hackathon bajo el rol de <strong>Scrum Master</strong>, el mayor reto fue coordinar la entrega de un MVP funcional en 48 horas. Implementé ciclos de trabajo ágiles y resolví la persistencia de datos mediante <strong>LocalStorage</strong>, logrando una interfaz responsiva y un flujo de carrito optimizado.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-solid fa-users-gear"></i> SCRUM MASTER</span>
             <span class="tech-pill"><i class="fa-brands fa-js"></i> JS FRONTEND</span>
@@ -290,9 +296,7 @@
                 <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" title="Ver Repositorio" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>
-            E-commerce <strong>Full Stack</strong> desarrollado en mes y medio bajo <strong>Scrum</strong>. Colaboré en el equipo de desarrollo para el backend, gestión de base de datos e implementación de flujos como login y carrito de compras.
-          </p>
+          <p>Plataforma Full Stack donde el desafío principal fue la gestión segura de usuarios y catálogo gourmet. Colaboré en el backend con <strong>Java y Spring Boot</strong>, integrando una API REST y validaciones de servidor que garantizan un manejo de stock preciso y navegación fluida.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-solid fa-database"></i> FULL STACK</span>
             <span class="tech-pill"><i class="fa-brands fa-java"></i> BACKEND</span>
@@ -307,9 +311,7 @@
             <h3 style="margin:0;">Java Phone Book</h3>
             <a href="https://github.com/Victormanuelhdez/Phone-Book" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
           </div>
-          <p>
-            Agenda telefónica desarrollada en un <strong>Hackathon</strong> de lógica. Como <strong>Scrum Master</strong>, lideré la arquitectura del proyecto enfocado en la validación de datos y la persistencia de contactos mediante <strong>Java</strong>.
-          </p>
+          <p>Proyecto de lógica enfocado en la integridad de datos. El reto fue prevenir entradas duplicadas o corruptas; lo resolví diseñando un motor de validación con <strong>Regex</strong> y aplicando principios de <strong>POO</strong> para gestionar la memoria eficientemente mediante ArrayList.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-solid fa-users-gear"></i> SCRUM MASTER</span>
             <span class="tech-pill"><i class="fa-brands fa-java"></i> LOGIC & POO</span>
@@ -324,7 +326,7 @@
             <h3 style="margin:0;">ATM Core System</h3>
             <a href="https://github.com/Victormanuelhdez" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
           </div>
-          <p>Motor de transacciones financieras basado en <strong>Java</strong>. Implementación de principios <strong>POO</strong>, gestión de excepciones y validación lógica de flujos de efectivo.</p>
+          <p>Simulador bancario centrado en la seguridad transaccional. El reto técnico consistió en modelar flujos de efectivo complejos sin errores de saldo. Implementé un robusto sistema de **Gestión de Excepciones** y utilicé polimorfismo para crear un motor fiable.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-brands fa-java"></i> JAVA</span>
             <span class="tech-pill"><i class="fa-solid fa-code"></i> POO</span>
@@ -352,7 +354,7 @@
       <a href="mailto:victormanuelhernandez.hdez01@gmail.com" class="contact-link">victormanuelhernandez.hdez01@gmail.com</a>
     </div>
     <div style="margin-top: 20px;">
-      <a href="CV_Victor_Hernandez.pdf" download="CV_Victor_Hernandez" 
+      <a href="IMAGES/CV_Victor_Hernandez.pdf" download="CV_Victor_Hernandez" 
          style="background-color: var(--accent); color: var(--bg-nav); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s ease;">
         <i class="fa-solid fa-file-pdf"></i> Descargar CV
       </a>
