@@ -101,6 +101,7 @@
       .nav-links.active { display: flex; }
     }
 
+    /* HEADER CON IMAGEN CIRCULAR */
     header {
       background: var(--bg-nav);
       padding: 140px 20px 80px;
@@ -108,12 +109,29 @@
       border-bottom: 1px solid #1e293b;
     }
 
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+    }
+
     .header-container h1 { margin: 0; font-size: 3rem; letter-spacing: -1px; }
     .header-container p {
       color: var(--accent);
       font-weight: 600;
       font-size: 1.2rem;
-      margin: 10px 0 30px;
+      margin-top: 10px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -128,7 +146,6 @@
 
     .project-tech { display: flex; flex-wrap: wrap; gap: 15px; }
 
-    /* ESTILOS INTERACTIVOS (HOVER) */
     .tech-pill-large {
       background: rgba(56, 189, 248, 0.1);
       color: var(--accent);
@@ -147,7 +164,6 @@
       transform: translateY(-5px);
       background: rgba(56, 189, 248, 0.2);
       border-color: var(--accent);
-      box-shadow: 0 5px 15px rgba(56, 189, 248, 0.1);
     }
 
     .tech-pill {
@@ -161,29 +177,19 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.3s ease;
     }
 
-    .tech-pill:hover {
-      transform: scale(1.1);
-      background: rgba(56, 189, 248, 0.2);
-    }
-
-    /* --- CAMBIO SOLICITADO AQUÍ --- */
     .projects-grid {
       display: grid;
-      /* Forzamos exactamente 2 columnas iguales */
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
 
-    /* Ajuste para móviles: 1 columna en pantallas pequeñas */
     @media (max-width: 600px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+      .projects-grid { grid-template-columns: 1fr; }
+      .header-container h1 { font-size: 2.2rem; }
+      .profile-img { width: 130px; height: 130px; }
     }
-    /* ------------------------------ */
 
     .card {
       background: var(--card-bg);
@@ -203,9 +209,94 @@
     .card h3 { color: var(--accent); margin: 0 0 12px; font-size: 1.25rem; }
     .card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
 
-    footer { background: var(--bg-nav); padding: 60px 20px; text-align: center; border-top: 1px solid #1e293b; }
-    .contact-link { color: var(--accent); font-size: 1.3rem; font-weight: 700; text-decoration: none; }
-    .footer-note { margin-top: 30px; font-size: 0.85rem; color: var(--text-dim); }
+    /* CARRUSEL HABILIDADES BLANDAS */
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid #334155;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide-icon {
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      background: rgba(56, 189, 248, 0.1);
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--accent);
+      border: 1px solid #334155;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .dots-container { text-align: center; padding: 15px; }
+    .dot {
+      height: 8px; width: 8px; margin: 0 5px;
+      background-color: #334155; border-radius: 50%;
+      display: inline-block; cursor: pointer;
+    }
+    .dot.active { background-color: var(--accent); width: 20px; border-radius: 10px; }
+
+    /* FORMULARIO Y FOOTER */
+    footer { background: var(--bg-nav); padding: 80px 20px; text-align: center; border-top: 1px solid #1e293b; }
+    
+    .form-container {
+      max-width: 600px; margin: 0 auto 50px auto;
+      background: var(--card-bg); padding: 30px;
+      border-radius: 16px; border: 1px solid #334155; text-align: left;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+    .form-group label { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+    .form-group input, .form-group textarea {
+      background: var(--bg-dark); border: 1px solid #334155; color: white;
+      padding: 12px; border-radius: 8px; outline: none; font-family: inherit;
+    }
+
+    .submit-btn {
+      background: var(--accent); color: var(--bg-nav); padding: 14px;
+      border-radius: 8px; border: none; font-weight: 700; cursor: pointer; width: 100%;
+    }
+
+    .contact-link { color: var(--accent); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+    .footer-note { margin-top: 40px; font-size: 0.85rem; color: var(--text-dim); }
   </style>
 </head>
 
@@ -214,26 +305,30 @@
     <div class="nav-container">
       <a href="#" class="nav-logo">VH</a>
       <button class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
       <ul class="nav-links">
         <li><a href="#perfil">Perfil</a></li>
         <li><a href="#habilidades">Stack</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#habilidades-blandas">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
   <header>
     <div class="header-container">
-      <h1>Victor Hernández</h1>
-      <p>Junior Java Full Stack Developer</p>
+      <div class="header-content">
+        <img src="IMAGES/Victor Avatar.png" alt="Victor Hernández" class="profile-img">
+        <div>
+          <h1>Victor Hernández</h1>
+          <p>Junior Java Full Stack Developer</p>
+        </div>
+      </div>
       <div class="social-nav">
         <a href="https://github.com/Victormanuelhdez" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/vict-hdez/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/victor-hernandez-javadev/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         <a href="mailto:victormanuelhernandez.hdez01@gmail.com"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
@@ -244,10 +339,10 @@
     <div style="max-width: 850px;">
       <p style="font-size: 1.1rem; margin-bottom: 20px;">
         Desarrollador enfocado en la creación de soluciones web y lógica de programación con <strong>Java</strong>. 
-        Cuento con experiencia en el desarrollo de proyectos reales, desde e-commerce integrales hasta aplicaciones robustas basadas en <strong>Programación Orientada a Objetos</strong>.
+        Cuento con experiencia en el desarrollo de proyectos reales, desde e-commerce integrales hasta aplicaciones robustas basadas en <strong>POO</strong>.
       </p>
       <p style="color: var(--text-dim);">
-        Mi enfoque se centra en el código limpio y la resolución eficiente de problemas, equilibrando la lógica técnica con una experiencia de usuario optimizada y metodologías ágiles.
+        Mi enfoque se centra en el código limpio y la resolución eficiente de problemas, equilibrando la lógica técnica con una mentalidad curiosa y una actitud colaborativa.
       </p>
     </div>
   </section>
@@ -256,7 +351,6 @@
     <h2>Stack Tecnológico</h2>
     <div class="project-tech">
       <span class="tech-pill-large"><i class="fa-brands fa-java"></i> Java 17</span>
-      <span class="tech-pill-large"><i class="fa-solid fa-leaf"></i> Spring Boot</span>
       <span class="tech-pill-large"><i class="fa-brands fa-js"></i> JavaScript</span>
       <span class="tech-pill-large"><i class="fa-brands fa-github"></i> Git & GitHub</span>
       <span class="tech-pill-large"><i class="fa-brands fa-bootstrap"></i> Bootstrap 5</span>
@@ -267,36 +361,35 @@
   <section id="proyectos">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
-      
       <div class="card">
-        <div class="project-image"><img src="IMAGES/CalleLibre.png" alt="Calle Libre Preview"></div>
+        <div class="project-image"><img src="IMAGES/CalleLibre.png" alt="Calle Libre"></div>
         <div class="card-content">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="margin:0;">Calle Libre Skate Shop</h3>
             <div style="display: flex; gap: 10px;">
-              <a href="https://cnastienka.github.io/Calle-Libre/" target="_blank" title="Ver Demo" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-solid fa-rocket"></i></a>
-              <a href="https://github.com/cnastienka/Calle-Libre" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
+              <a href="https://cnastienka.github.io/Calle-Libre/" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
+              <a href="https://github.com/cnastienka/Calle-Libre" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>Desarrollado en un Hackathon bajo el rol de <strong>Scrum Master</strong>, el mayor reto fue coordinar la entrega de un MVP funcional en 48 horas. Implementé ciclos de trabajo ágiles y resolví la persistencia de datos mediante <strong>LocalStorage</strong>, logrando una interfaz responsiva y un flujo de carrito optimizado.</p>
+          <p>E-commerce desarrollado en Hackathon coordinando un MVP funcional en 48 horas. Implementé ciclos ágiles y persistencia de datos mediante LocalStorage.</p>
           <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-users-gear"></i> SCRUM MASTER</span>
+            <span class="tech-pill"><i class="fa-solid fa-users"></i> COLABORATIVO</span>
             <span class="tech-pill"><i class="fa-brands fa-js"></i> JS FRONTEND</span>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="project-image"><img src="IMAGES/ValidacionFormulario.png" alt="5ta Esencia Preview"></div>
+        <div class="project-image"><img src="IMAGES/ValidacionFormulario.png" alt="5ta Esencia"></div>
         <div class="card-content">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="margin:0;">5ta Esencia E-commerce</h3>
             <div style="display: flex; gap: 10px;">
-                <a href="https://veronicaortcastillo.github.io/5ta-Esencia/" target="_blank" title="Ver Piloto" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-solid fa-rocket"></i></a>
-                <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" title="Ver Repositorio" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
+                <a href="https://veronicaortcastillo.github.io/5ta-Esencia/" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
+                <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>Plataforma Full Stack donde el desafío principal fue la gestión segura de usuarios y catálogo gourmet. Colaboré en el backend con <strong>Java y Spring Boot</strong>, integrando una API REST y validaciones de servidor que garantizan un manejo de stock preciso y navegación fluida.</p>
+          <p>Plataforma enfocada en gestión segura de usuarios y catálogo gourmet. Integré una API REST para garantizar un manejo de stock preciso.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-solid fa-database"></i> FULL STACK</span>
             <span class="tech-pill"><i class="fa-brands fa-java"></i> BACKEND</span>
@@ -304,30 +397,29 @@
         </div>
       </div>
 
-<div class="card">
-        <div class="project-image"><img src="IMAGES/Phone Book.png" alt="Phone Book Preview"></div>
+      <div class="card">
+        <div class="project-image"><img src="IMAGES/Phone Book.png" alt="Phone Book"></div>
         <div class="card-content">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="margin:0;">Java Phone Book</h3>
-            <a href="https://github.com/Victormanuelhdez/Phone-Book" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/Victormanuelhdez/Phone-Book" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
           </div>
-          <p>Como <strong>Scrum Master</strong>, lideré la organización del equipo y la arquitectura de esta agenda telefónica. El reto principal fue garantizar la integridad de los contactos; lo resolví implementando una estructura basada en <strong>POO</strong> y colecciones dinámicas (ArrayList) para gestionar búsquedas y validaciones lógicas eficientes.</p>
+          <p>Agenda telefónica con arquitectura POO. Reto: garantizar integridad de contactos mediante colecciones dinámicas (ArrayList) y validaciones lógicas.</p>
           <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-users-gear"></i> SCRUM MASTER</span>
+            <span class="tech-pill"><i class="fa-solid fa-code"></i> ESTRUCTURAS</span>
             <span class="tech-pill"><i class="fa-brands fa-java"></i> LOGIC & POO</span>
           </div>
         </div>
       </div>
 
-
       <div class="card">
         <div class="project-image"><img src="IMAGES/CajeroSimulator.png" alt="ATM Simulator"></div>
         <div class="card-content">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="margin:0;">ATM Core System</h3>
-            <a href="https://github.com/Victormanuelhdez" target="_blank" title="Ver Código" style="color: var(--accent); font-size: 1.4rem;"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/Victormanuelhdez" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
           </div>
-          <p>Simulador funcional de cajero automático desarrollado para fortalecer las bases de la programación. El reto fue estructurar el flujo de operaciones básicas; lo resolví mediante el uso de estructuras de control y condicionales para validar saldos y entradas de usuario de forma secuencial.</p>
+          <p>Simulador de cajero automático. Estructuré el flujo de operaciones mediante control de errores y validaciones de saldo secuenciales.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-brands fa-java"></i> JAVA</span>
             <span class="tech-pill"><i class="fa-solid fa-terminal"></i> LÓGICA</span>
@@ -339,23 +431,44 @@
 
   <section id="habilidades-blandas">
     <h2>Habilidades Blandas</h2>
-    <div class="project-tech">
-      <span class="tech-pill" style="padding: 10px 20px;">Trabajo en equipo</span>
-      <span class="tech-pill" style="padding: 10px 20px;">Adaptabilidad</span>
-      <span class="tech-pill" style="padding: 10px 20px;">Aprendizaje continuo</span>
-      <span class="tech-pill" style="padding: 10px 20px;">Gestión del tiempo</span>
-      <span class="tech-pill" style="padding: 10px 20px;">Pensamiento analítico</span>
+    <div class="carousel-container">
+      <button class="carousel-btn prev" id="prevBtn">❮</button>
+      <button class="carousel-btn next" id="nextBtn">❯</button>
+      <div class="carousel-track" id="track">
+        <div class="slide">
+          <div class="slide-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Trabajo en equipo</h3>
+          <p>Me apasiona colaborar y aprender de otros. Mantengo siempre una actitud positiva y amigable para que los proyectos avancen con fluidez.</p>
+        </div>
+        <div class="slide">
+          <div class="slide-icon"><i class="fa-solid fa-rotate"></i></div>
+          <h3>Adaptabilidad</h3>
+          <p>Soy una persona con gran capacidad de aprendizaje, capaz de ajustarme rápido a nuevos retos técnicos y entornos dinámicos.</p>
+        </div>
+        <div class="slide">
+          <div class="slide-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Pensamiento Analítico</h3>
+          <p>Disfruto descubrir cómo funciona la tecnología y transformar necesidades complejas en soluciones lógicas y funcionales.</p>
+        </div>
+      </div>
+      <div class="dots-container" id="dotsContainer"></div>
     </div>
   </section>
 
-  <footer>
+  <footer id="contacto">
     <h3>¿Hablamos?</h3>
-    <div style="margin: 20px 0;">
-      <a href="mailto:victormanuelhernandez.hdez01@gmail.com" class="contact-link">victormanuelhernandez.hdez01@gmail.com</a>
+    <div class="form-container">
+      <form action="https://formspree.io/f/xeevvlza" method="POST">
+        <div class="form-group"><label>Nombre</label><input type="text" name="name" required placeholder="Tu nombre"></div>
+        <div class="form-group"><label>Correo</label><input type="email" name="_replyto" required placeholder="tu@correo.com"></div>
+        <div class="form-group"><label>Mensaje</label><textarea name="message" rows="4" required placeholder="¿En qué puedo ayudarte?"></textarea></div>
+        <button type="submit" class="submit-btn">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
     </div>
-    <div style="margin-top: 20px;">
-      <a href="IMAGES/CV_Victor_Hernandez.pdf" download="CV_Victor_Hernandez" 
-         style="background-color: var(--accent); color: var(--bg-nav); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.3s ease;">
+    <a href="mailto:victormanuelhernandez.hdez01@gmail.com" class="contact-link">victormanuelhernandez.hdez01@gmail.com</a>
+    <div style="margin-top: 25px;">
+      <a href="IMAGES/Victor_Manuel_Hernandez_Portfolio.pdf" download 
+         style="color: var(--accent); border: 1px solid var(--accent); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700;">
         <i class="fa-solid fa-file-pdf"></i> Descargar CV
       </a>
     </div>
@@ -363,16 +476,37 @@
   </footer>
 
   <script>
+    // MENÚ MÓVIL
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-links');
+    menu.addEventListener('click', () => menuLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => menuLinks.classList.remove('active')));
 
-    menu.addEventListener('click', () => {
-      menuLinks.classList.toggle('active');
+    // CARRUSEL
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const dotsContainer = document.getElementById('dotsContainer');
+    let currentIdx = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => { currentIdx = i; updateCarousel(); });
+      dotsContainer.appendChild(dot);
     });
 
-    document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
-      menuLinks.classList.remove('active');
-    }));
+    const dots = Array.from(dotsContainer.children);
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIdx * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
+    }
+
+    nextBtn.addEventListener('click', () => { currentIdx = (currentIdx + 1) % slides.length; updateCarousel(); });
+    prevBtn.addEventListener('click', () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateCarousel(); });
+    setInterval(() => { currentIdx = (currentIdx + 1) % slides.length; updateCarousel(); }, 6000);
   </script>
 </body>
 </html>
