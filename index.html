@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Victor Hernández | Junior Java Full Stack Developer</title>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -66,7 +66,9 @@
       transition: color 0.3s;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
     .menu-toggle {
       display: none;
@@ -85,7 +87,9 @@
     }
 
     @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
+      .menu-toggle {
+        display: flex;
+      }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -98,7 +102,9 @@
         text-align: center;
         border-bottom: 1px solid #1e293b;
       }
-      .nav-links.active { display: flex; }
+      .nav-links.active {
+        display: flex;
+      }
     }
 
     /* HEADER CON IMAGEN CIRCULAR */
@@ -124,9 +130,19 @@
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .header-container h1 { margin: 0; font-size: 3rem; letter-spacing: -1px; }
+    .profile-img:hover {
+      transform: rotate(12deg) scale(1.05);
+    }
+
+    .header-container h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: -1px;
+    }
+
     .header-container p {
       color: var(--accent);
       font-weight: 600;
@@ -136,15 +152,49 @@
       letter-spacing: 2px;
     }
 
-    .social-nav { display: flex; justify-content: center; gap: 30px; }
-    .social-nav a { color: var(--text-main); font-size: 2rem; transition: all 0.3s ease; }
-    .social-nav a:hover { color: var(--accent); transform: scale(1.1); }
+    .social-nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
 
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    h2 { font-size: 1.8rem; margin-bottom: 40px; display: flex; align-items: center; gap: 20px; }
-    h2::after { content: ""; height: 1px; background: #334155; flex-grow: 1; }
+    .social-nav a {
+      color: var(--text-main);
+      font-size: 2rem;
+      transition: all 0.3s ease;
+    }
 
-    .project-tech { display: flex; flex-wrap: wrap; gap: 15px; }
+    .social-nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    h2::after {
+      content: "";
+      height: 1px;
+      background: #334155;
+      flex-grow: 1;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
     .tech-pill-large {
       background: rgba(56, 189, 248, 0.1);
@@ -161,7 +211,7 @@
     }
 
     .tech-pill-large:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) rotate(3deg);
       background: rgba(56, 189, 248, 0.2);
       border-color: var(--accent);
     }
@@ -177,6 +227,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .tech-pill:hover {
+      transform: rotate(-8deg);
+      background: rgba(56, 189, 248, 0.2);
     }
 
     .projects-grid {
@@ -186,9 +242,16 @@
     }
 
     @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .header-container h1 { font-size: 2.2rem; }
-      .profile-img { width: 130px; height: 130px; }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-container h1 {
+        font-size: 2.2rem;
+      }
+      .profile-img {
+        width: 130px;
+        height: 130px;
+      }
     }
 
     .card {
@@ -200,14 +263,45 @@
       flex-direction: column;
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .card:hover { transform: translateY(-10px); border-color: var(--accent); }
 
-    .project-image { height: 200px; background: #0f172a; overflow: hidden; border-bottom: 1px solid #334155; }
-    .project-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+    }
 
-    .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .card h3 { color: var(--accent); margin: 0 0 12px; font-size: 1.25rem; }
-    .card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+    .project-image {
+      height: 200px;
+      background: #0f172a;
+      overflow: hidden;
+      border-bottom: 1px solid #334155;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .card-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
 
     /* CARRUSEL HABILIDADES BLANDAS */
     .carousel-container {
@@ -263,40 +357,99 @@
       z-index: 10;
     }
 
-    .prev { left: 15px; }
-    .next { right: 15px; }
-
-    .dots-container { text-align: center; padding: 15px; }
-    .dot {
-      height: 8px; width: 8px; margin: 0 5px;
-      background-color: #334155; border-radius: 50%;
-      display: inline-block; cursor: pointer;
+    .prev {
+      left: 15px;
     }
-    .dot.active { background-color: var(--accent); width: 20px; border-radius: 10px; }
+
+    .next {
+      right: 15px;
+    }
+
+    .dots-container {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      margin: 0 5px;
+      background-color: #334155;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: var(--accent);
+      width: 20px;
+      border-radius: 10px;
+    }
 
     /* FORMULARIO Y FOOTER */
-    footer { background: var(--bg-nav); padding: 80px 20px; text-align: center; border-top: 1px solid #1e293b; }
-    
-    .form-container {
-      max-width: 600px; margin: 0 auto 50px auto;
-      background: var(--card-bg); padding: 30px;
-      border-radius: 16px; border: 1px solid #334155; text-align: left;
+    footer {
+      background: var(--bg-nav);
+      padding: 80px 20px;
+      text-align: center;
+      border-top: 1px solid #1e293b;
     }
 
-    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
-    .form-group label { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto 50px auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid #334155;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     .form-group input, .form-group textarea {
-      background: var(--bg-dark); border: 1px solid #334155; color: white;
-      padding: 12px; border-radius: 8px; outline: none; font-family: inherit;
+      background: var(--bg-dark);
+      border: 1px solid #334155;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      outline: none;
+      font-family: inherit;
     }
 
     .submit-btn {
-      background: var(--accent); color: var(--bg-nav); padding: 14px;
-      border-radius: 8px; border: none; font-weight: 700; cursor: pointer; width: 100%;
+      background: var(--accent);
+      color: var(--bg-nav);
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
     }
 
-    .contact-link { color: var(--accent); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
-    .footer-note { margin-top: 40px; font-size: 0.85rem; color: var(--text-dim); }
+    .contact-link {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
   </style>
 </head>
 
@@ -371,9 +524,9 @@
               <a href="https://github.com/cnastienka/Calle-Libre" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>E-commerce desarrollado en Hackathon coordinando un MVP funcional en 48 horas. Implementé ciclos ágiles y persistencia de datos mediante LocalStorage.</p>
+          <p>E-commerce desarrollado en Hackathon bajo metodología Scrum, donde fungí como Scrum Master coordinando un MVP funcional en 48 horas. Implementé ciclos ágiles y persistencia de datos mediante LocalStorage.</p>
           <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-users"></i> COLABORATIVO</span>
+            <span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
             <span class="tech-pill"><i class="fa-brands fa-js"></i> JS FRONTEND</span>
           </div>
         </div>
@@ -385,14 +538,14 @@
           <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="margin:0;">5ta Esencia E-commerce</h3>
             <div style="display: flex; gap: 10px;">
-                <a href="https://veronicaortcastillo.github.io/5ta-Esencia/" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
-                <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
+              <a href="https://veronicaortcastillo.github.io/5ta-Esencia/" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
+              <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
             </div>
           </div>
-          <p>Plataforma enfocada en gestión segura de usuarios y catálogo gourmet. Integré una API REST para garantizar un manejo de stock preciso.</p>
+          <p>Plataforma gourmet donde colaboré como Back End Web Developer bajo metodología Scrum. Integré una API REST para asegurar la gestión segura de usuarios y un manejo de stock preciso en el catálogo.</p>
           <div class="project-tech">
             <span class="tech-pill"><i class="fa-solid fa-database"></i> FULL STACK</span>
-            <span class="tech-pill"><i class="fa-brands fa-java"></i> BACKEND</span>
+            <span class="tech-pill"><i class="fa-brands fa-java"></i> BACK END</span>
           </div>
         </div>
       </div>
@@ -404,9 +557,9 @@
             <h3 style="margin:0;">Java Phone Book</h3>
             <a href="https://github.com/Victormanuelhdez/Phone-Book" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
           </div>
-          <p>Agenda telefónica con arquitectura POO. Reto: garantizar integridad de contactos mediante colecciones dinámicas (ArrayList) y validaciones lógicas.</p>
+          <p>Proyecto desarrollado en Hackathon donde desempeñé el rol de Scrum Master. Agenda telefónica con arquitectura POO enfocada en garantizar la integridad de contactos mediante colecciones dinámicas y validaciones lógicas.</p>
           <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-code"></i> ESTRUCTURAS</span>
+            <span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
             <span class="tech-pill"><i class="fa-brands fa-java"></i> LOGIC & POO</span>
           </div>
         </div>
@@ -494,7 +647,10 @@
       const dot = document.createElement('span');
       dot.classList.add('dot');
       if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => { currentIdx = i; updateCarousel(); });
+      dot.addEventListener('click', () => {
+        currentIdx = i;
+        updateCarousel();
+      });
       dotsContainer.appendChild(dot);
     });
 
@@ -504,9 +660,18 @@
       dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
     }
 
-    nextBtn.addEventListener('click', () => { currentIdx = (currentIdx + 1) % slides.length; updateCarousel(); });
-    prevBtn.addEventListener('click', () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateCarousel(); });
-    setInterval(() => { currentIdx = (currentIdx + 1) % slides.length; updateCarousel(); }, 6000);
+    nextBtn.addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % slides.length;
+      updateCarousel();
+    });
+    prevBtn.addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+    setInterval(() => {
+      currentIdx = (currentIdx + 1) % slides.length;
+      updateCarousel();
+    }, 6000);
   </script>
 </body>
 </html>
