@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor Hernández | Junior Java Full Stack Developer</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Victor Hernández | Junior Java Full Stack Developer</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
     :root {
       --bg-dark: #0f172a;
       --bg-nav: #020617;
@@ -319,6 +318,122 @@
       flex-grow: 1;
     }
 
+
+    /* CARRUSEL DE PROYECTOS */
+    .projects-carousel {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      padding: 10px 65px 25px;
+      box-sizing: border-box;
+    }
+
+    .projects-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .projects-slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .projects-slide .card {
+      width: 100%;
+      max-width: 820px;
+      min-height: 360px;
+      flex-direction: row;
+    }
+
+    .projects-slide .project-image {
+      width: 42%;
+      height: auto;
+      min-height: 360px;
+      flex-shrink: 0;
+      border-bottom: none;
+      border-right: 1px solid #334155;
+    }
+
+    .projects-slide .card-content {
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .project-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+      border: 1px solid #334155;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+      font-size: 1.2rem;
+    }
+
+    .project-carousel-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .project-prev {
+      left: 5px;
+    }
+
+    .project-next {
+      right: 5px;
+    }
+
+    .project-dots {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .project-dot {
+      height: 8px;
+      width: 8px;
+      margin: 0 5px;
+      background-color: #334155;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .project-dot.active {
+      background-color: var(--accent);
+      width: 20px;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .projects-carousel {
+        padding: 10px 50px 25px;
+      }
+
+      .projects-slide .card {
+        max-width: 520px;
+        min-height: 0;
+        flex-direction: column;
+      }
+
+      .projects-slide .project-image {
+        width: 100%;
+        height: 240px;
+        min-height: 0;
+        border-right: none;
+        border-bottom: 1px solid #334155;
+      }
+
+      .projects-slide .card-content {
+        padding: 22px;
+      }
+    }
+
     /* CARRUSEL HABILIDADES BLANDAS */
     .carousel-container {
       position: relative;
@@ -468,191 +583,235 @@
     }
   </style>
 </head>
-
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="nav-logo">VH</a>
-      <button class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#perfil">Perfil</a></li>
-        <li><a href="#habilidades">Stack</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#habilidades-blandas">Habilidades</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <header>
-    <div class="header-container">
-      <div class="header-content">
-        <img src="IMAGES/Victor Avatar.png" alt="Victor Hernández" class="profile-img">
-        <div>
-          <h1>Victor Hernández</h1>
-          <p>Junior Java Full Stack Developer</p>
-        </div>
-      </div>
-      <div class="social-nav">
-        <a href="https://github.com/Victormanuelhdez" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/victor-hernandez-javadev/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="mailto:victormanuelhernandez.hdez01@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <section id="perfil">
-    <h2>Perfil Profesional</h2>
-    <div style="max-width: 850px;">
-      <p style="font-size: 1.1rem; margin-bottom: 20px;">
+<nav class="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="#">VH</a>
+<button class="menu-toggle" id="mobile-menu">
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+<ul class="nav-links">
+<li><a href="#perfil">Perfil</a></li>
+<li><a href="#habilidades">Stack</a></li>
+<li><a href="#proyectos">Proyectos</a></li>
+<li><a href="#habilidades-blandas">Habilidades</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</div>
+</nav>
+<header>
+<div class="header-container">
+<div class="header-content">
+<img alt="Victor Hernández" class="profile-img" src="IMAGES/Victor Avatar.png"/>
+<div>
+<h1>Victor Hernández</h1>
+<p>Junior Java Full Stack Developer</p>
+</div>
+</div>
+<div class="social-nav">
+<a href="https://github.com/Victormanuelhdez" target="_blank"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/in/victor-hernandez-javadev/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+<a href="mailto:victormanuelhernandez.hdez01@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+</header>
+<section id="perfil">
+<h2>Perfil Profesional</h2>
+<div style="max-width: 850px;">
+<p style="font-size: 1.1rem; margin-bottom: 20px;">
         Desarrollador enfocado en la creación de soluciones web y lógica de programación con <strong>Java</strong>. 
         Cuento con experiencia en el desarrollo de proyectos reales, desde e-commerce integrales hasta aplicaciones robustas basadas en <strong>POO</strong>.
       </p>
-      <p style="color: var(--text-dim);">
+<p style="color: var(--text-dim);">
         Mi enfoque se centra en el código limpio y la resolución eficiente de problemas, equilibrando la lógica técnica con una mentalidad curiosa y una actitud colaborativa.
       </p>
-    </div>
-  </section>
+</div>
+</section>
+<section id="habilidades">
+<h2>Stack Tecnológico</h2>
+<div class="project-tech">
+<span class="tech-pill-large"><i class="fa-brands fa-java"></i> Java 17</span>
+<span class="tech-pill-large"><i class="fa-brands fa-js"></i> JavaScript</span>
+<span class="tech-pill-large"><i class="fa-brands fa-github"></i> Git &amp; GitHub</span>
+<span class="tech-pill-large"><i class="fa-brands fa-bootstrap"></i> Bootstrap 5</span>
+<span class="tech-pill-large"><i class="fa-brands fa-html5"></i> HTML5</span>
+</div>
+</section>
+<section id="proyectos">
+<h2>Proyectos Destacados</h2>
+<div class="projects-carousel">
+<button class="project-carousel-btn project-prev" id="projectPrevBtn">❮</button>
+<button class="project-carousel-btn project-next" id="projectNextBtn">❯</button>
+<div class="projects-track" id="projectsTrack">
+<div class="projects-slide"><div class="card">
+<div class="project-image"><img alt="5ta Esencia" src="IMAGES/QuintaEsencia.png"/></div>
+<div class="card-content">
+<div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+<h3 style="margin:0;">5ta Esencia E-commerce</h3>
+<div style="display: flex; gap: 10px;">
+<a href="http://100.30.173.212:8080/index.html" style="color: var(--accent);" target="_blank"><i class="fa-solid fa-rocket"></i></a>
+<a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" style="color: var(--accent);" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+</div>
+<p>Proyecto e-commerce gastronómico donde lideré dinámicas Scrum y fungí como Desarrollador Full Stack. Creé la arquitectura backend con APIs REST, gestioné el almacenamiento en MariaDB y colaboré en la interfaz del cliente.</p>
+<div class="project-tech">
+<span class="tech-pill"><i class="fa-solid fa-database"></i> FULL STACK</span>
+<span class="tech-pill"><i class="fa-brands fa-java"></i> BACK END</span>
+</div>
+</div>
+</div></div>
 
-  <section id="habilidades">
-    <h2>Stack Tecnológico</h2>
-    <div class="project-tech">
-      <span class="tech-pill-large"><i class="fa-brands fa-java"></i> Java 17</span>
-      <span class="tech-pill-large"><i class="fa-brands fa-js"></i> JavaScript</span>
-      <span class="tech-pill-large"><i class="fa-brands fa-github"></i> Git & GitHub</span>
-      <span class="tech-pill-large"><i class="fa-brands fa-bootstrap"></i> Bootstrap 5</span>
-      <span class="tech-pill-large"><i class="fa-brands fa-html5"></i> HTML5</span>
-    </div>
-  </section>
+<div class="projects-slide"><div class="card">
+<div class="project-image"><img alt="Calle Libre" src="IMAGES/CalleLibre.png"/></div>
+<div class="card-content">
+<div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+<h3 style="margin:0;">Calle Libre Skate Shop</h3>
+<div style="display: flex; gap: 10px;">
+<a href="https://cnastienka.github.io/Calle-Libre/" style="color: var(--accent);" target="_blank"><i class="fa-solid fa-rocket"></i></a>
+<a href="https://github.com/cnastienka/Calle-Libre" style="color: var(--accent);" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+</div>
+<p>E-commerce desarrollado en Hackathon bajo metodología Scrum, donde fungí como Scrum Master coordinando un MVP funcional en 48 horas. Implementé ciclos ágiles y persistencia de datos mediante LocalStorage.</p>
+<div class="project-tech">
+<span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
+<span class="tech-pill"><i class="fa-brands fa-js"></i> JS FRONTEND</span>
+</div>
+</div>
+</div></div>
 
-  <section id="proyectos">
-    <h2>Proyectos Destacados</h2>
+<div class="projects-slide"><div class="card">
+<div class="project-image"><img alt="Phone Book" src="IMAGES/Phone Book.png"/></div>
+<div class="card-content">
+<div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+<h3 style="margin:0;">Java Phone Book</h3>
+<a href="https://github.com/Victormanuelhdez/Phone-Book" style="color: var(--accent);" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+<p>Proyecto desarrollado en Hackathon donde desempeñé el rol de Scrum Master. Agenda telefónica con arquitectura POO enfocada en garantizar la integridad de contactos mediante colecciones dinámicas y validaciones lógicas.</p>
+<div class="project-tech">
+<span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
+<span class="tech-pill"><i class="fa-brands fa-java"></i> LOGIC &amp; POO</span>
+</div>
+</div>
+</div></div>
 
-    <div class="projects-grid">
+<div class="projects-slide"><div class="card">
+<div class="project-image"><img alt="ATM Simulator" src="IMAGES/CajeroSimulator.png"/></div>
+<div class="card-content">
+<div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+<h3 style="margin:0;">ATM Core System</h3>
+<a href="https://github.com/Victormanuelhdez" style="color: var(--accent);" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+<p>Simulador de cajero automático. Estructuré el flujo de operaciones mediante control de errores y validaciones de saldo secuenciales.</p>
+<div class="project-tech">
+<span class="tech-pill"><i class="fa-brands fa-java"></i> JAVA</span>
+<span class="tech-pill"><i class="fa-solid fa-terminal"></i> LÓGICA</span>
+</div>
+</div>
+</div></div>
 
-      <div class="card">
-        <div class="project-image"><img src="IMAGES/QuintaEsencia.png" alt="5ta Esencia"></div>
-        <div class="card-content">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-            <h3 style="margin:0;">5ta Esencia E-commerce</h3>
-            <div style="display: flex; gap: 10px;">
-              <a href="http://100.30.173.212:8080/index.html" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
-              <a href="https://github.com/VeronicaOrtCastillo/5ta-Esencia" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-          <p>Proyecto e-commerce gastronómico donde lideré dinámicas Scrum y fungí como Desarrollador Full Stack. Creé la arquitectura backend con APIs REST, gestioné el almacenamiento en MariaDB y colaboré en la interfaz del cliente.</p>
-          <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-database"></i> FULL STACK</span>
-            <span class="tech-pill"><i class="fa-brands fa-java"></i> BACK END</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="project-image"><img src="IMAGES/CalleLibre.png" alt="Calle Libre"></div>
-        <div class="card-content">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-            <h3 style="margin:0;">Calle Libre Skate Shop</h3>
-            <div style="display: flex; gap: 10px;">
-              <a href="https://cnastienka.github.io/Calle-Libre/" target="_blank" style="color: var(--accent);"><i class="fa-solid fa-rocket"></i></a>
-              <a href="https://github.com/cnastienka/Calle-Libre" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-          <p>E-commerce desarrollado en Hackathon bajo metodología Scrum, donde fungí como Scrum Master coordinando un MVP funcional en 48 horas. Implementé ciclos ágiles y persistencia de datos mediante LocalStorage.</p>
-          <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
-            <span class="tech-pill"><i class="fa-brands fa-js"></i> JS FRONTEND</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="project-image"><img src="IMAGES/Phone Book.png" alt="Phone Book"></div>
-        <div class="card-content">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-            <h3 style="margin:0;">Java Phone Book</h3>
-            <a href="https://github.com/Victormanuelhdez/Phone-Book" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <p>Proyecto desarrollado en Hackathon donde desempeñé el rol de Scrum Master. Agenda telefónica con arquitectura POO enfocada en garantizar la integridad de contactos mediante colecciones dinámicas y validaciones lógicas.</p>
-          <div class="project-tech">
-            <span class="tech-pill"><i class="fa-solid fa-users"></i> SCRUM MASTER</span>
-            <span class="tech-pill"><i class="fa-brands fa-java"></i> LOGIC & POO</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="project-image"><img src="IMAGES/CajeroSimulator.png" alt="ATM Simulator"></div>
-        <div class="card-content">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-            <h3 style="margin:0;">ATM Core System</h3>
-            <a href="https://github.com/Victormanuelhdez" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i></a>
-          </div>
-          <p>Simulador de cajero automático. Estructuré el flujo de operaciones mediante control de errores y validaciones de saldo secuenciales.</p>
-          <div class="project-tech">
-            <span class="tech-pill"><i class="fa-brands fa-java"></i> JAVA</span>
-            <span class="tech-pill"><i class="fa-solid fa-terminal"></i> LÓGICA</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="habilidades-blandas">
-    <h2>Habilidades Blandas</h2>
-    <div class="carousel-container">
-      <button class="carousel-btn prev" id="prevBtn">❮</button>
-      <button class="carousel-btn next" id="nextBtn">❯</button>
-      <div class="carousel-track" id="track">
-        <div class="slide">
-          <div class="slide-icon"><i class="fa-solid fa-people-group"></i></div>
-          <h3>Trabajo en equipo</h3>
-          <p>Me apasiona colaborar y aprender de otros. Mantengo siempre una actitud positiva y amigable para que los proyectos avancen con fluidez.</p>
-        </div>
-        <div class="slide">
-          <div class="slide-icon"><i class="fa-solid fa-rotate"></i></div>
-          <h3>Adaptabilidad</h3>
-          <p>Soy una persona con gran capacidad de aprendizaje, capaz de ajustarme rápido a nuevos retos técnicos y entornos dinámicos.</p>
-        </div>
-        <div class="slide">
-          <div class="slide-icon"><i class="fa-solid fa-brain"></i></div>
-          <h3>Pensamiento Analítico</h3>
-          <p>Disfruto descubrir cómo funciona la tecnología y transformar necesidades complejas en soluciones lógicas y funcionales.</p>
-        </div>
-      </div>
-      <div class="dots-container" id="dotsContainer"></div>
-    </div>
-  </section>
-
-  <footer id="contacto">
-    <h3>¿Hablamos?</h3>
-    <div class="form-container">
-      <form action="https://formspree.io/f/xeevvlza" method="POST">
-        <div class="form-group"><label>Nombre</label><input type="text" name="name" required placeholder="Tu nombre"></div>
-        <div class="form-group"><label>Correo</label><input type="email" name="_replyto" required placeholder="tu@correo.com"></div>
-        <div class="form-group"><label>Mensaje</label><textarea name="message" rows="4" required placeholder="¿En qué puedo ayudarte?"></textarea></div>
-        <button type="submit" class="submit-btn">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
-      </form>
-    </div>
-    <a href="mailto:victormanuelhernandez.hdez01@gmail.com" class="contact-link">victormanuelhernandez.hdez01@gmail.com</a>
-    <div style="margin-top: 25px;">
-      <a href="IMAGES/Victor_Manuel_Hernandez_Portfolio.pdf" download 
-         style="color: var(--accent); border: 1px solid var(--accent); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700;">
-        <i class="fa-solid fa-file-pdf"></i> Descargar CV
+<div class="projects-slide"><div class="card">
+<div class="project-image"><img alt="Proyecto Examen Java" src="IMAGES/ProyectoExamenJava.png"/></div>
+<div class="card-content">
+<div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+<h3 style="margin:0;">Proyecto Examen Java</h3>
+<a href="https://victormanuelhdez.github.io/javaSimulator/" style="color: var(--accent);" target="_blank"><i class="fa-brands fa-github"></i></a>
+</div>
+<p>Proyecto desarrollado como examen práctico de Java, enfocado en la aplicación de programación orientada a objetos, validaciones, manejo de datos y resolución de lógica mediante una estructura organizada.</p>
+<div class="project-tech">
+<span class="tech-pill"><i class="fa-brands fa-java"></i> JAVA</span>
+<span class="tech-pill"><i class="fa-solid fa-code"></i> POO &amp; LÓGICA</span>
+</div>
+</div>
+</div></div>
+</div>
+<div class="project-dots" id="projectDots"></div>
+</div>
+</section>
+<section id="habilidades-blandas">
+<h2>Habilidades Blandas</h2>
+<div class="carousel-container">
+<button class="carousel-btn prev" id="prevBtn">❮</button>
+<button class="carousel-btn next" id="nextBtn">❯</button>
+<div class="carousel-track" id="track">
+<div class="slide">
+<div class="slide-icon"><i class="fa-solid fa-people-group"></i></div>
+<h3>Trabajo en equipo</h3>
+<p>Me apasiona colaborar y aprender de otros. Mantengo siempre una actitud positiva y amigable para que los proyectos avancen con fluidez.</p>
+</div>
+<div class="slide">
+<div class="slide-icon"><i class="fa-solid fa-rotate"></i></div>
+<h3>Adaptabilidad</h3>
+<p>Soy una persona con gran capacidad de aprendizaje, capaz de ajustarme rápido a nuevos retos técnicos y entornos dinámicos.</p>
+</div>
+<div class="slide">
+<div class="slide-icon"><i class="fa-solid fa-brain"></i></div>
+<h3>Pensamiento Analítico</h3>
+<p>Disfruto descubrir cómo funciona la tecnología y transformar necesidades complejas en soluciones lógicas y funcionales.</p>
+</div>
+</div>
+<div class="dots-container" id="dotsContainer"></div>
+</div>
+</section>
+<footer id="contacto">
+<h3>¿Hablamos?</h3>
+<div class="form-container">
+<form action="https://formspree.io/f/xeevvlza" method="POST">
+<div class="form-group"><label>Nombre</label><input name="name" placeholder="Tu nombre" required="" type="text"/></div>
+<div class="form-group"><label>Correo</label><input name="_replyto" placeholder="tu@correo.com" required="" type="email"/></div>
+<div class="form-group"><label>Mensaje</label><textarea name="message" placeholder="¿En qué puedo ayudarte?" required="" rows="4"></textarea></div>
+<button class="submit-btn" type="submit">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+</div>
+<a class="contact-link" href="mailto:victormanuelhernandez.hdez01@gmail.com">victormanuelhernandez.hdez01@gmail.com</a>
+<div style="margin-top: 25px;">
+<a download="" href="IMAGES/Victor_Manuel_Hernandez_Portfolio.pdf" style="color: var(--accent); border: 1px solid var(--accent); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700;">
+<i class="fa-solid fa-file-pdf"></i> Descargar CV
       </a>
-    </div>
-    <p class="footer-note">&copy; 2026 Victor Hernández | Junior Java Full Stack Developer</p>
-  </footer>
-
-  <script>
+</div>
+<p class="footer-note">© 2026 Victor Hernández | Junior Java Full Stack Developer</p>
+</footer>
+<script>
     // MENÚ MÓVIL
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.nav-links');
     menu.addEventListener('click', () => menuLinks.classList.toggle('active'));
     document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => menuLinks.classList.remove('active')));
+
+    // CARRUSEL DE PROYECTOS
+    const projectsTrack = document.getElementById('projectsTrack');
+    const projectSlides = Array.from(projectsTrack.children);
+    const projectNextBtn = document.getElementById('projectNextBtn');
+    const projectPrevBtn = document.getElementById('projectPrevBtn');
+    const projectDotsContainer = document.getElementById('projectDots');
+    let currentProjectIdx = 0;
+
+    projectSlides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('project-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        currentProjectIdx = i;
+        updateProjectsCarousel();
+      });
+      projectDotsContainer.appendChild(dot);
+    });
+
+    const projectDots = Array.from(projectDotsContainer.children);
+
+    function updateProjectsCarousel() {
+      projectsTrack.style.transform = `translateX(-${currentProjectIdx * 100}%)`;
+      projectDots.forEach((dot, i) => dot.classList.toggle('active', i === currentProjectIdx));
+    }
+
+    projectNextBtn.addEventListener('click', () => {
+      currentProjectIdx = (currentProjectIdx + 1) % projectSlides.length;
+      updateProjectsCarousel();
+    });
+
+    projectPrevBtn.addEventListener('click', () => {
+      currentProjectIdx = (currentProjectIdx - 1 + projectSlides.length) % projectSlides.length;
+      updateProjectsCarousel();
+    });
 
     // CARRUSEL
     const track = document.getElementById('track');
